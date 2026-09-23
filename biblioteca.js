@@ -1,7 +1,7 @@
 import PromptSync from "prompt-sync";
 const prompt = PromptSync()
 
-let livro = []
+let livros = []
 
 let indice = true
 
@@ -16,7 +16,7 @@ do{
 
     switch(resposta){
         case("1"):
-
+            cadastrarLivro()
             break
         case("2"):
 
@@ -35,3 +35,23 @@ do{
     }
 
 }while(indice === true)
+
+    function cadastrarLivro(){
+        console.log("\n--Cadastro--\n")
+        let titulo = (prompt("Informe o título do livro: ")).trim()
+        let autor = (prompt("Agora, informe o autor do livro: ")).trim()
+        let genero = (prompt("Por último, informe o gênero do livro: ")).trim()
+
+        if(titulo === "" || autor === "" || genero === ""){
+            console.log("\nAlguma informação foi preenchida incorretamente!")
+            cadastrarLivro()
+        }else{
+            console.log("\nLivro cadastrado com sucesso!")
+            let livro = {
+                titulo: titulo,
+                autor: autor,
+                genero: genero
+            }
+            livros.push(livro)
+        }
+    }
