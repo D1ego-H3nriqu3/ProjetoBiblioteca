@@ -19,7 +19,7 @@ do{
             cadastrarLivro()
             break
         case("2"):
-
+            listarLivros()
             break
         case("3"):
 
@@ -50,8 +50,21 @@ do{
             let livro = {
                 titulo: titulo,
                 autor: autor,
-                genero: genero
+                genero: genero,
+                status: "quero ler"
             }
             livros.push(livro)
+        }
+    }
+
+    function listarLivros(){
+        if(livros.length === 0){
+            console.log("\nNão há nenhum livro para listar;")
+        }else{
+            console.log("\n--Listagem de livros--\n")
+            for(let i = 0; i < livros.length; i++){
+                let livroAtual = livros[i]
+                console.log(`${i + 1}. [${livroAtual.status}] ${livroAtual.titulo} - ${livroAtual.genero} - ${livroAtual.autor}`)
+            }
         }
     }
