@@ -82,8 +82,18 @@ do{
                 let livroAtual = livros[numLivro - 1]
                 let novoStatus = (prompt("Informe o novo status do livro - (quero ler/lendo/lido): ")).trim().toLowerCase()
                 livroAtual.status = novoStatus
-                console.log("Status atualizado com sucesso!")
+                verificacaoStatus(novoStatus)
             }
+        }
+    }
+
+    function verificacaoStatus(novoStatus){
+        let status = ["quero ler", "lendo", "lido"]
+        if(status.includes(novoStatus)){
+            console.log("\nStatus atualizado com sucesso!")
+        }else{
+            console.log("\nStatus inválido. Use 'quero ler', 'lendo' ou 'lido'.")
+            attStatus()
         }
     }
 
