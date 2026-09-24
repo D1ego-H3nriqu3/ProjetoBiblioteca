@@ -22,13 +22,13 @@ do{
             listarLivros()
             break
         case("3"):
-
+            
             break
         case("4"):
 
             break
         case("0"):
-
+            sairSistema()
             break
         default:
             console.log("\nEscolha uma opção correspondente;")
@@ -67,4 +67,9 @@ do{
                 console.log(`${i + 1}. [${livroAtual.status}] ${livroAtual.titulo} - ${livroAtual.genero} - ${livroAtual.autor}`)
             }
         }
+    }
+
+    function sairSistema(){
+        console.log("\n...Saindo do sistema...\n")
+        indice = false
     }
