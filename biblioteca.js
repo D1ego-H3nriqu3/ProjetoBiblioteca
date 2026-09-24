@@ -22,7 +22,7 @@ do{
             listarLivros()
             break
         case("3"):
-            
+            attStatus()
             break
         case("4"):
 
@@ -65,6 +65,24 @@ do{
             for(let i = 0; i < livros.length; i++){
                 let livroAtual = livros[i]
                 console.log(`${i + 1}. [${livroAtual.status}] ${livroAtual.titulo} - ${livroAtual.genero} - ${livroAtual.autor}`)
+            }
+        }
+    }
+
+    function attStatus(){
+        if(livros.length === 0){
+            console.log("\nNão há nenhum livro para ter o status atualizado;")
+        }else{
+            console.log("\n--Atualização de Status--\n")
+            let numLivro = Number(prompt("Qual o número do livro em questão? "))
+            if(numLivro <= 0 || numLivro > livros.length){
+                console.log("\nLivro não encontrado;")
+                attStatus()
+            }else{
+                let livroAtual = livros[numLivro - 1]
+                let novoStatus = (prompt("Informe o novo status do livro - (quero ler/lendo/lido): ")).trim().toLowerCase()
+                livroAtual.status = novoStatus
+                console.log("Status atualizado com sucesso!")
             }
         }
     }
