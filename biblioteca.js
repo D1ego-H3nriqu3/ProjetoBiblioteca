@@ -25,7 +25,7 @@ do{
             attStatus()
             break
         case("4"):
-
+            removerLivro()
             break
         case("0"):
             sairSistema()
@@ -75,7 +75,7 @@ do{
         }else{
             console.log("\n--Atualização de Status--\n")
             let numLivro = Number(prompt("Qual o número do livro em questão? "))
-            if(numLivro <= 0 || numLivro > livros.length){
+            if(isNaN(numLivro) || numLivro <= 0 || numLivro > livros.length){
                 console.log("\nLivro não encontrado;")
                 attStatus()
             }else{
@@ -94,6 +94,23 @@ do{
         }else{
             console.log("\nStatus inválido. Use 'quero ler', 'lendo' ou 'lido'.")
             attStatus()
+        }
+    }
+
+    function removerLivro(){
+        if(livros.length === 0){
+            console.log("\nNão há nenhum livro para ser removido;")
+        }else{
+            console.log("\n--Remoção de livro--\n")
+            let numLivro = Number(prompt("Qual o número do livro que gostaria de remover? "))
+            if(isNaN(numLivro) || numLivro <= 0 || numLivro > livros.length){
+                console.log("\nLivro não encontrado;")
+                removerLivro()
+            }else{
+                let livroAtual = livros[numLivro - 1]
+                livros.splice(livroAtual,1)
+                console.log("\nLivro removido com sucesso!")
+            }
         }
     }
 
